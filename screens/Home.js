@@ -108,7 +108,7 @@ getUserLocation()
 
 */
 
-/*** */
+
 
 //partager ma position
 const sharePosition = async () =>{
