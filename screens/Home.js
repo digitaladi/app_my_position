@@ -108,7 +108,7 @@ getUserLocation()
 
 */
 
-
+/*** */
 
 //partager ma position
 const sharePosition = async () =>{
@@ -122,7 +122,7 @@ await Share.share({
   message : 'Au secours ! Je suis coincé à la position indiqué par le lien ci dessous. Cliquez sur le lien pour afficher ma position dans google maps et venez me secourir svp :'+
   '\n latitude : '+latitude+
  '\n longitude : '+longitude+
- '\n altitude : '+altitude+
+ '\n altitude : '+altitude+ 
  '\n https://www.google.com/maps/search/?api=1&query='+latitude+'%2C'+longitude //le lien permet de localiser sur google maps
 
 })
