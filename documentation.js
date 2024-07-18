@@ -19,4 +19,4 @@ Pour cela, on va créer une branche , faire des modifications, les envoyer sur l
 
 
 
-/* j'ai modifié sur le meme fichier et sur la meme ligne dans la branche main donc bonjour les conflits avec dev */
+/* Attention au conflit ici on est dans la branche dev */
