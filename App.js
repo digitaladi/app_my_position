@@ -7,11 +7,15 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
+//ici on importe la translation
+import translation from './translation';
 
 export default function App() {
 const Tabs = createBottomTabNavigator()
-const home = 'Accueil'
-const rules = 'régles de confidentialité'
+
+//utilisation de notre translation avec en param la clé de chaque traduction
+const home =   translation('home')
+const rules = translation('rulesTitle')
 
 
 

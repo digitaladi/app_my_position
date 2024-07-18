@@ -1,7 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button, Share } from 'react-native';
-import * as Location from 'expo-location'
+import * as Location from 'expo-location';
+//ici on importe la translation
+import translation from './../translation';
 export default function Home() {
 
 
@@ -80,8 +82,9 @@ const getUserLocation = async () =>{
 
 //si on est pas autorisé on envoie le message : Vous n' etes pas autorisé
 if(status !== 'granted'){
-  alert("La permission a été refusée")
-  setErrorMSG("La permission a été refusée")
+ 
+  alert(translation("permission"))
+  setErrorMSG(translation("permission"))
   //return
  }
 
@@ -121,10 +124,10 @@ try{
 /*le composant Share a une fonction share qui a parametre un objet contient le message 
 et dans le l'attribut message on met un message , l'attitude, la longitude, l' altitude  et le lien pour vers google map pour afficher sa position*/
 await Share.share({
-  message : 'Au secours ! Je suis coincé à la position indiqué par le lien ci dessous. Cliquez sur le lien pour afficher ma position dans google maps et venez me secourir svp :'+
-  '\n latitude : '+latitude+
- '\n longitude : '+longitude+
- '\n altitude : '+altitude+ 
+  message : translation("message") +
+  '\n'+translation('latitude')+' : '+latitude+
+  '\n'+translation('longitude')+' : '+longitude+
+  '\n'+translation('altitude')+' : '+altitude+
  '\n https://www.google.com/maps/search/?api=1&query='+latitude+'%2C'+longitude //le lien permet de localiser sur google maps
 
 })
@@ -142,8 +145,7 @@ alert(e.message)
 
 
 
-
-let text = 'Cliquez sur le boutton "Obtenir ma position"'
+let text = translation('click')+' "'+translation('addPosition')+'"';
 
 
 if(errorMSG){
@@ -154,11 +156,9 @@ if(errorMSG){
   altitude = location.coords.altitude
 
 
-text = 'latitude : '+latitude+
-        '\nlongitude : ' +longitude+
-        '\naltitude : ' +altitude
-
-
+text =  '\n'+translation('latitude')+' : '+latitude+
+'\n'+translation('longitude')+' : '+longitude+
+'\n'+translation('altitude')+' : '+altitude
 
 }
 
@@ -171,12 +171,12 @@ text = 'latitude : '+latitude+
   return (
     <View style={styles.container}>
 
-<Button  title='Obtenir ma position' onPress={getUserLocation}/>
+<Button  title= {translation('addPosition')} onPress={getUserLocation}/>
 
 
       <Text style={styles.Text}>{text}</Text>
 
-      <Button  title='Partager ma position' onPress={sharePosition}/>
+      <Button  title={ translation('sharePosition')} onPress={sharePosition}/>
       <StatusBar style="auto" />
     </View>
   );
